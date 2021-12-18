@@ -3,7 +3,7 @@
 #include <math.h>
 #include <gmp.h>
 #include <mpfr.h>
-extern double Sin(), new_Sin(); 
+extern double Sin(),  My_sin(); 
 int main(int argc, char * argv[]) {
     int i,n = atoi(argv[2]);
     long j, base =atol(argv[1]); 
@@ -24,9 +24,9 @@ int main(int argc, char * argv[]) {
         mpfr_sin(ans, theta,MPFR_RNDN); mpfr_sprintf(buf,"%.16Rg",(mpfr_ptr)ans);
         mpfr_set_d(er1,sin(th),MPFR_RNDN);mpfr_sub(er1,er1,ans,MPFR_RNDN);mpfr_fma(ser1,er1,er1,ser1,MPFR_RNDN);
         mpfr_set_d(er2,Sin(th),MPFR_RNDN);mpfr_sub(er2,er2,ans,MPFR_RNDN);mpfr_fma(ser2,er2,er2,ser2,MPFR_RNDN);
-        mpfr_set_d(er3,new_Sin(th),MPFR_RNDN);mpfr_sub(er3,er3,ans,MPFR_RNDN);mpfr_fma(ser3,er3,er3,ser3,MPFR_RNDN);
+        mpfr_set_d(er3,My_sin(th),MPFR_RNDN);mpfr_sub(er3,er3,ans,MPFR_RNDN);mpfr_fma(ser3,er3,er3,ser3,MPFR_RNDN);
 
-        printf("%f\t%18.16f\t%18.16f\t%18.16f\t%s\n", th,sin(th), Sin(th),new_Sin(th),buf);  
+        printf("%f\t%18.16f\t%18.16f\t%18.16f\t%s\n", th,sin(th), Sin(th),My_sin(th),buf);  
         // s = Sin(th); 
         // c = Cos(th); 
         // sum += s * s + c * c; 
