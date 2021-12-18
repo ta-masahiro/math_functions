@@ -9,6 +9,7 @@ int main(int argc, char * argv[]) {
 	double d, dd, y[2];
 	int n = __rem_pio2(x,y);
     int m;
+	if (x<0.785) {printf("%20.16f\t%20.16f\t%20.16f\n", sin(x), __sin__(y[0], y[1], 1), __sin__(x, 0, 0));return 0;}
 	if (x<105414336) m= reduce_sincos(x, &d, &dd); else m = reduce_sincos_long(x,&d,&dd); 
 	printf("rem_pio2     :%d\t%20.16f\t%20.16e\n",n,y[0],y[1]);
 	printf("reduce_sincos:%d\t%20.16f\t%20.16e\n",m,d,dd);
